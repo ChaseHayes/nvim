@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
           ts_update()
       end,}
   use("nvim-treesitter/nvim-treesitter-context");
-  use("folke/tokyonight.nvim")
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -44,7 +43,8 @@ return require('packer').startup(function(use)
 		  {'L3MON4D3/LuaSnip'},
 		  {'rafamadriz/friendly-snippets'},
 
-          { "catppuccin/nvim", as = "catppuccin" }
-	  }
+          { 'catppuccin/nvim', as = 'catppuccin' },
+          { 'tpope/vim-surround' }
+	}
   }
 end)
