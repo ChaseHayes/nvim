@@ -44,7 +44,8 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 
           { 'catppuccin/nvim', as = 'catppuccin' },
-          { 'tpope/vim-surround' }
+          { 'tpope/vim-surround' },
+          { 'preservim/nerdtree' }
 	}
   }
 end)
