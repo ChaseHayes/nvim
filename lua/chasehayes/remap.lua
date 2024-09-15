@@ -12,7 +12,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
-
 vim.keymap.set("n", "<C-n>", ":NERDTreeToggle<enter>")
 
 -- next greatest remap ever : asbjornHaland
