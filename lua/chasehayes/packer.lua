@@ -22,6 +22,14 @@ return require('packer').startup(function(use)
   use("nvim-treesitter/nvim-treesitter-context");
 
   use {
+    'nvim-flutter/flutter-tools.nvim',
+    requires = {
+        'nvim-lua/plenary.nvim',
+        'stevearc/dressing.nvim', -- optional for vim.ui.select
+    },
+}
+
+  use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {

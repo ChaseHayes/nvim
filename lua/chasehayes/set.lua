@@ -30,3 +30,8 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 vim.cmd.colorscheme "catppuccin-mocha"
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
