@@ -1,7 +1,12 @@
 return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
-    requires = { { 'nvim-lua/plenary.nvim' } },
+    requires = {
+        { 'nvim-lua/plenary.nvim' },
+    },
+    dependencies = {
+        { 'nvim-telescope/telescope-ui-select.nvim' }
+    },
     config = function()
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
@@ -17,5 +22,7 @@ return {
                 layout_strategy = 'vertical',
             }
         }
+
+        require('telescope').load_extension('ui-select')
     end,
 }
