@@ -13,17 +13,19 @@ return {
                     },
                 },
             },
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'hrsh7th/cmp-buffer' },
-            { 'hrsh7th/cmp-path' },
-            { 'hrsh7th/cmp-cmdline' },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-path" },
+            { "hrsh7th/cmp-cmdline" },
             { "hrsh7th/nvim-cmp" },
+            { "williamboman/mason.nvim" },
+            { "williamboman/mason-lspconfig.nvim" },
         },
         config = function()
-            require("lspconfig").lua_ls.setup {}
-            require("lspconfig").ts_ls.setup {}
-            require("lspconfig").dartls.setup {}
-            require("lspconfig").eslint.setup {}
+            -- require("lspconfig").lua_ls.setup {}
+            -- require("lspconfig").ts_ls.setup {}
+            -- require("lspconfig").dartls.setup {}
+            -- require("lspconfig").eslint.setup {}
 
             vim.diagnostic.config({
                 virtual_text = true,
@@ -42,8 +44,8 @@ return {
             vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
             vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end)
             vim.keymap.set("n", "<leader>ca", function() vim.lsp.buf.code_action() end)
-            vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end)
-            vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end)
+            vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = 1, float = true }) end)
+            vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = -1, float = true }) end)
             vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end)
             vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
             vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
@@ -64,6 +66,16 @@ return {
                 }, {
                     { name = 'buffer' },
                 })
+            })
+
+            require("mason").setup()
+            require("mason-lspconfig").setup({
+                automatic_enable = true,
+                ensure_installed = {
+                    "lua_ls",
+                    "ts_ls",
+                    "eslint",
+                }
             })
         end,
     }
