@@ -22,11 +22,6 @@ return {
             { "williamboman/mason-lspconfig.nvim" },
         },
         config = function()
-            -- require("lspconfig").lua_ls.setup {}
-            -- require("lspconfig").ts_ls.setup {}
-            -- require("lspconfig").dartls.setup {}
-            -- require("lspconfig").eslint.setup {}
-
             vim.diagnostic.config({
                 virtual_text = true,
                 float = {

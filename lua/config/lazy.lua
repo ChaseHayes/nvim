@@ -27,3 +27,7 @@ require("lazy").setup({
     -- automatically check for plugin updates
     checker = { enabled = true },
 })
+
+vim.keymap.set("n", "<leader>l", function()
+    require("lazy").home()
+end, { desc = "Open Lazy.nvim home" })
